@@ -110,6 +110,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MajorAndMinorScales.cs" />
     <Compile Include="NoteMath.cs" />
     <Compile Include="IntervalComparisons.cs" />
     <Compile Include="IntervalEquality.cs" />
