@@ -95,6 +95,10 @@
     <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Cloak.Xunit, Version=0.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Cloak.Xunit.0.4.2.0\lib\net40\Cloak.Xunit.dll</HintPath>
+    </Reference>
     <Reference Include="FluentAssertions">
       <HintPath>..\packages\FluentAssertions.1.7.1.1\Lib\net40\FluentAssertions.dll</HintPath>
     </Reference>
@@ -125,10 +129,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cloak.Xunit\Cloak.Xunit.csproj">
-      <Project>{99abeae5-6e7a-4667-a0b1-5c92ae207a0e}</Project>
-      <Name>Cloak.Xunit</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Score\Score.csproj">
       <Project>{4dee1352-42ec-49e5-a022-8fbfd5bb2dd9}</Project>
       <Name>Score</Name>
