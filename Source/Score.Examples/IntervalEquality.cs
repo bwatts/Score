@@ -25,7 +25,7 @@ namespace Score.Examples
 		[Scenario]
 		public void EqualOperator()
 		{
-			When(Interval.HalfStep == Interval.FromHalfSteps(1)).Then(_ => _.Should().BeTrue());
+			When(Interval.HalfStep == new Interval(halfSteps: 1)).Then(_ => _.Should().BeTrue());
 		}
 
 		[Scenario]

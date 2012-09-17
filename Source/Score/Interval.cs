@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,59 +30,33 @@ namespace Score
 			return new Interval(first.HalfSteps - second.HalfSteps);
 		}
 
+		public static readonly Interval Zero = new Interval();
+
 		// http://en.wikipedia.org/wiki/Interval_%28music%29#Main_intervals
 
-		public static readonly Interval Unison = FromHalfSteps(0);
+		public static readonly Interval Unison = new Interval();
+		public static readonly Interval HalfStep = new Interval(halfSteps: 1);
+		public static readonly Interval WholeStep = new Interval(wholeSteps: 1);
+		public static readonly Interval MinorSecond = new Interval(halfSteps: 1);
+		public static readonly Interval MajorSecond = new Interval(halfSteps: 2);
+		public static readonly Interval MinorThird = new Interval(halfSteps: 3);
+		public static readonly Interval MajorThird = new Interval(halfSteps: 4);
+		public static readonly Interval PerfectFourth = new Interval(halfSteps: 5);
+		public static readonly Interval AugmentedFourth = new Interval(halfSteps: 6);
+		public static readonly Interval DiminishedFifth = new Interval(halfSteps: 6);
+		public static readonly Interval PerfectFifth = new Interval(halfSteps: 7);
+		public static readonly Interval MinorSixth = new Interval(halfSteps: 8);
+		public static readonly Interval MajorSixth = new Interval(halfSteps: 9);
+		public static readonly Interval MinorSeventh = new Interval(halfSteps: 10);
+		public static readonly Interval MajorSeventh = new Interval(halfSteps: 11);
+		public static readonly Interval Octave = new Interval(halfSteps: 12);
 
-		public static readonly Interval HalfStep = FromHalfSteps(1);
-
-		public static readonly Interval WholeStep = FromWholeSteps(1);
-
-		public static readonly Interval MinorSecond = FromHalfSteps(1);
-
-		public static readonly Interval MajorSecond = FromHalfSteps(2);
-
-		public static readonly Interval MinorThird = FromHalfSteps(3);
-
-		public static readonly Interval MajorThird = FromHalfSteps(4);
-
-		public static readonly Interval PerfectFourth = FromHalfSteps(5);
-
-		public static readonly Interval AugmentedFourth = FromHalfSteps(6);
-
-		public static readonly Interval DiminishedFifth = FromHalfSteps(6);
-
-		public static readonly Interval PerfectFifth = FromHalfSteps(7);
-
-		public static readonly Interval MinorSixth = FromHalfSteps(8);
-
-		public static readonly Interval MajorSixth = FromHalfSteps(9);
-
-		public static readonly Interval MinorSeventh = FromHalfSteps(10);
-
-		public static readonly Interval MajorSeventh = FromHalfSteps(11);
-
-		public static readonly Interval Octave = FromHalfSteps(12);
-
-		public static Interval FromHalfSteps(int halfSteps)
+		public Interval(int halfSteps = 0, int wholeSteps = 0) : this()
 		{
-			return new Interval(halfSteps);
-		}
+			Contract.Requires(halfSteps >= 0);
 
-		public static Interval FromWholeSteps(int wholeSteps)
-		{
-			return new Interval(wholeSteps * 2);
-		}
-
-		public static Interval FromSteps(int wholeSteps, int halfSteps)
-		{
-			return FromWholeSteps(wholeSteps) + FromHalfSteps(halfSteps);
-		}
-
-		private Interval(int halfSteps) : this()
-		{
-			HalfSteps = halfSteps;
-			WholeSteps = halfSteps / 2d;
+			HalfSteps = halfSteps + wholeSteps * 2;
+			WholeSteps = HalfSteps / 2d;
 		}
 
 		#region IEquatable

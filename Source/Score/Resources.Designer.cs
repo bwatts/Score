@@ -61,6 +61,15 @@ namespace Score {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A diatonic note set requires exactly eight notes, starting and finishing on the root.
+        /// </summary>
+        internal static string DiatonicNoteSetRequirements {
+            get {
+                return ResourceManager.GetString("DiatonicNoteSetRequirements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0}#/{1}b.
         /// </summary>
         internal static string DualNoteName {

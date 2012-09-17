@@ -29,19 +29,19 @@ namespace Score.Examples
 		[Scenario]
 		public void FromHalfStep()
 		{
-			When(Interval.FromHalfSteps(1)).Then(_ => _.Should().Be(Interval.HalfStep));
+			When(new Interval(halfSteps: 1)).Then(_ => _.Should().Be(Interval.HalfStep));
 		}
 
 		[Scenario]
 		public void FromWholeStep()
 		{
-			When(Interval.FromWholeSteps(1)).Then(_ => _.Should().Be(Interval.WholeStep));
+			When(new Interval(wholeSteps: 1)).Then(_ => _.Should().Be(Interval.WholeStep));
 		}
 
 		[Scenario]
 		public void FromSteps()
 		{
-			When(Interval.FromSteps(1, 1)).Then(_ => _.Should().Be(Interval.WholeStep + Interval.HalfStep));
+			When(new Interval(halfSteps: 1, wholeSteps: 1)).Then(_ => _.Should().Be(Interval.HalfStep + Interval.WholeStep));
 		}
 
 		[Scenario]
